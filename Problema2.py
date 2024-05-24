@@ -1,14 +1,22 @@
 
 
-fraccion = input("Digite una fracción en formato (X/Y), donde X sea menor o igual a Y (X<Y): ")
+def main():
+    while(True):
+        try:
+            notas = input('Digite las calificaciones de los alumnos separados por comas (,): ')
+            lista = []
+            lista = notas.split(',')
 
-largo = 0
-for i in fraccion:
-    largo += 1
+            for i, nota in enumerate(lista):
+                lista[i] = int(lista[i])
+                
+        except ValueError:
+            print('Dato erroneo, introduce solo números enteros')
+        else:
+            print('Tipos de datos correctamente convertidos')
+            print(lista)
+            break
+    pass
 
-corte = fraccion.find("/")
-num = int(fraccion[0:corte])
-den = int(fraccion[corte+1:largo])
-
-print(num)
-print(den)
+if __name__ == '__main__':
+    main()
